@@ -1,0 +1,47 @@
+import tkinter as tk
+from tkinter import filedialog
+from tkinter import ttk
+
+# Fungsi untuk upload file sesi
+def upload_sessions():
+    file_path = filedialog.askopenfilename()
+    if file_path:
+        print(f'Sessions file uploaded: {file_path}')
+
+# Fungsi untuk upload file proxy
+def upload_proxy():
+    file_path = filedialog.askopenfilename()
+    if file_path:
+        print(f'Proxy file uploaded: {file_path}')
+
+# Membuat jendela utama
+root = tk.Tk()
+root.title("CodeProfessor Report Tool")
+root.geometry("300x200")
+root.configure(bg='green')
+
+# Membuat dropdown untuk memilih aplikasi
+app_label = tk.Label(root, text="Choose an app", bg='green', fg='white')
+app_label.pack(pady=10)
+
+app_choice = ttk.Combobox(root, values=["Tiktok", "OtherApp1", "OtherApp2"])
+app_choice.set("Tiktok")
+app_choice.pack()
+
+# Input untuk target URL
+url_label = tk.Label(root, text="Input target URL", bg='green', fg='white')
+url_label.pack(pady=10)
+
+url_entry = tk.Entry(root)
+url_entry.pack()
+
+# Tombol untuk upload file sesi
+upload_sessions_button = tk.Button(root, text="Upload sessions file", command=upload_sessions)
+upload_sessions_button.pack(pady=5)
+
+# Tombol untuk upload file proxy
+upload_proxy_button = tk.Button(root, text="Upload proxy file", command=upload_proxy)
+upload_proxy_button.pack(pady=5)
+
+# Menjalankan aplikasi
+root.mainloop()
